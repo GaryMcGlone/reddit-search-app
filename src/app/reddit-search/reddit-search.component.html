@@ -1,0 +1,14 @@
+<div class="ui container">
+  <form class="ui form">
+    <div class="field">
+      <h3>Search Reddit</h3>
+      <input type="text" (keydown.enter)="searchReddit(searchStr.value)" #searchStr name="searchStr" placeholder="Search Reddit...">
+    </div>
+    <button class="ui button" (click)="searchReddit(searchStr.value)" type="button">Go!</button>
+  </form>
+</div>
+
+
+<div *ngIf="posts" class="ui container output">
+  <display-results *ngFor="let post of posts.children" [post]="post" class="output"></display-results>
+</div>
