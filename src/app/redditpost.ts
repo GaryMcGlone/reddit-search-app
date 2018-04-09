@@ -5,6 +5,9 @@ interface RedditPost{
     title:string;
     url:string;
     permalink: string;
+
+    subreddit_name: string;
+    display_name: string;
 }
 interface Data{
     data:RedditPost;

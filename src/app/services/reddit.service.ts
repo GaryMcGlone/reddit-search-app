@@ -9,16 +9,32 @@ import 'rxjs/add/operator/map';
 export class RedditService {
 
   private endpoint = "http://www.reddit.com/r/all/search.json?q=";
+  private subredditEndpoint = "https://www.reddit.com/subreddits/search.json?q=";
 
   constructor(private _http: HttpClient) { }
 
-  searchReddit(searchTerm): Observable<RedditPost> {
-    return this._http.get<RedditPost>(this.endpoint + searchTerm)
-      .do(res => res.data.children.forEach(child => {
-        JSON.stringify(child.data);
-      }))
+  searchReddit(searchTerm, sortBy): Observable<RedditPost> {
+    console.log(this.endpoint + searchTerm + '&sortby=' + sortBy)
+    return this._http.get<RedditPost>(this.endpoint + searchTerm + '&sortby=' + sortBy)
+      .do(res => res.data.children
+        .forEach(child => {
+          JSON.stringify(child.data);
+        })
+      )
       .catch(this.handleError)
   }
+
+  searchForSubreddits(search) : Observable<RedditPost> {
+    return this._http.get<RedditPost>(this.subredditEndpoint + search)
+    .do(res => res.data.children
+      .forEach(child => {
+        JSON.stringify(child.data);
+        console.log(child)
+      })
+    )
+  }
+
+
   private handleError(err: HttpErrorResponse) {
     console.log(err.message);
     return Observable.throw(err.message);

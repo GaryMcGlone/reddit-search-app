@@ -14,11 +14,18 @@ export class RedditSearchComponent implements OnInit {
 
   constructor(private _redditService: RedditService) { }
 
-  searchReddit(search: string): boolean {
-    this._redditService.searchReddit(search)
+  searchReddit(search: string, sortBy: string): boolean {
+    this._redditService.searchReddit(search, sortBy)
       .subscribe(data => {
         this.posts = data.data;
       }, error => this.ErrorMessage = <any>error);
+    return false;
+  }
+
+  sortBy(sortBy: string): boolean{
+
+    console.log(sortBy);
+
     return false;
   }
 
