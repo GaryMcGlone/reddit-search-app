@@ -2,38 +2,9 @@
   <form class="ui large form raised segment">
     <div class="field">
       <h3>Search Reddit</h3>
-      <input type="text" (keydown.enter)="searchReddit(searchStr.value, sortBy.value )" #searchStr name="searchStr" placeholder="Search Reddit...">
+      <input type="text" (keydown.enter)="searchReddit(searchStr.value)" #searchStr name="searchStr" placeholder="Search Reddit...">
     </div>
-    <div class="ui form">
-      <div class="inline fields">
-        <label>Sort By</label>
-        <div class="field">
-          <div class="ui radio checkbox">
-            <input type="radio" name="sort" checked="checked" value="hot" #hot (change)="searchReddit(searchStr.value, hot.value )">
-            <label>Hot</label>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui radio checkbox">
-            <input type="radio" name="sort" value="relevant" #relevant (change)="searchReddit(searchStr.value, relevant.value )">
-            <label>Relevant</label>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui radio checkbox">
-            <input type="radio" name="sort" value="new" #new (change)="searchReddit(searchStr.value, new.value )">
-            <label>New</label>
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui radio checkbox" >
-            <input type="radio" name="sort" value="top" #top (change)="searchReddit(searchStr.value, top.value )">
-            <label>Top</label>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="ui button" (click)="searchReddit(searchStr.value, sortBy.value)" type="button">Go!</button>
+    <button class="ui button" (click)="searchReddit(searchStr.value)" type="button">Go!</button>
   </form>
 </div>
 
@@ -41,3 +12,40 @@
 <div *ngIf="posts" class="ui container output">
   <display-results *ngFor="let post of posts.children" [post]="post" class="output"></display-results>
 </div>
+
+
+
+
+<!-- 
+
+      <div class="ui form">
+      <div class="inline fields">
+        <label>Sort By</label>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="sort" checked="checked" value="hot">
+            <label>Hot</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="sort" value="relevant">
+            <label>Relevant</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="sort" value="new">
+            <label>New</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox" >
+            <input type="radio" name="sort" value="top">
+            <label>Top</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+-->

@@ -18,7 +18,6 @@ export class RedditSearchComponent implements OnInit {
     this._redditService.searchReddit(search, sortBy)
       .subscribe(data => {
         this.posts = data.data;
-        console.log(this.posts)
       }, error => this.ErrorMessage = <any>error);
     return false;
   }

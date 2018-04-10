@@ -18,7 +18,6 @@ export class SearchSubredditsComponent implements OnInit {
     this._redditService.searchForSubreddits(search)
     .subscribe(data => {
       this.subreddits = data.data;
-      console.log(this.subreddits)
     })
     return false;
   }

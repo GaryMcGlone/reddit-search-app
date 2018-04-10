@@ -14,8 +14,7 @@ export class RedditService {
   constructor(private _http: HttpClient) { }
 
   searchReddit(searchTerm, sortBy): Observable<RedditPost> {
-    console.log(this.endpoint + searchTerm + '&sortby=' + sortBy)
-    return this._http.get<RedditPost>(this.endpoint + searchTerm + '&sortby=' + sortBy)
+    return this._http.get<RedditPost>(this.endpoint + searchTerm)
       .do(res => res.data.children
         .forEach(child => {
           JSON.stringify(child.data);
@@ -28,7 +27,6 @@ export class RedditService {
     .do(res => res.data.children
       .forEach(child => {
         JSON.stringify(child.data);
-        console.log(child.data)
       })
     ).catch(this.handleError)
   }

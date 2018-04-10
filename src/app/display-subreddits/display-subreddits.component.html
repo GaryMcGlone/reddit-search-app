@@ -1,3 +1,25 @@
-<p>
-  {{subreddit.data.display_name}}
-</p>
+<a *ngIf="subreddit" href="https://reddit.com{{subreddit.data.url}}">
+  <div class="ui divided selection list">
+    <div class="item">
+      <h4>{{subreddit.data.display_name}}</h4>
+      <div class="middle aligned content">
+        <p>Subscribers: {{subreddit.data.subscribers}}</p>
+      </div>
+      <div class="extra">
+        <p>{{subreddit.data.public_description}}</p>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+
+<!--
+
+    <p>
+    
+    
+    
+  </p>
+
+-->
