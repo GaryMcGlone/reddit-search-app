@@ -8,7 +8,7 @@ import { RedditService } from '../services/reddit.service';
 })
 export class DisplaySubredditsComponent implements OnInit {
 
-  @Input() subreddits: Children;
+  @Input() subreddit: Children;
 
   constructor(private _redditService: RedditService) { }
 

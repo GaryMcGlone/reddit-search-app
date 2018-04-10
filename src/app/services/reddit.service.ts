@@ -20,8 +20,7 @@ export class RedditService {
         .forEach(child => {
           JSON.stringify(child.data);
         })
-      )
-      .catch(this.handleError)
+      ).catch(this.handleError)
   }
 
   searchForSubreddits(search) : Observable<RedditPost> {
@@ -29,9 +28,9 @@ export class RedditService {
     .do(res => res.data.children
       .forEach(child => {
         JSON.stringify(child.data);
-        console.log(child)
+        console.log(child.data)
       })
-    )
+    ).catch(this.handleError)
   }
 
 

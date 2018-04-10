@@ -1,7 +1,7 @@
 <div class="ui container">
   <form class="ui large form raised segment">
     <div class="field">
-      <h3>Search Reddit</h3>
+      <h3>Search For A Subreddit</h3>
       <input type="text" (keydown.enter)="searchForSubreddits(searchStr.value)" #searchStr name="searchStr" placeholder="Search Reddit...">
     </div>
     <button class="ui button" (click)="searchForSubreddits(searchStr.value)" type="button">Go!</button>
@@ -9,5 +9,5 @@
 </div>
 
 <div *ngIf="subreddits" class="ui container output">
-  <display-subreddits *ngFor="let sub of subreddit" [subreddits]="subreddits" class="output"></display-subreddits>
+  <display-subreddits *ngFor="let subreddit of subreddits.children" [subreddit]="subreddit" class="output"></display-subreddits>
 </div>
