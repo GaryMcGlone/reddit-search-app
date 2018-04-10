@@ -9,11 +9,12 @@ import 'rxjs/add/operator/map';
 export class RedditService {
 
   private endpoint = "http://www.reddit.com/r/all/search.json?q=";
+  private frontpage = "http://www.reddit.com/r/all/hot/search.json";
   private subredditEndpoint = "https://www.reddit.com/subreddits/search.json?q=";
 
   constructor(private _http: HttpClient) { }
 
-  searchReddit(searchTerm, sortBy): Observable<RedditPost> {
+  searchReddit(searchTerm): Observable<RedditPost> {
     return this._http.get<RedditPost>(this.endpoint + searchTerm)
       .do(res => res.data.children
         .forEach(child => {
@@ -30,7 +31,14 @@ export class RedditService {
       })
     ).catch(this.handleError)
   }
-
+  defaultPosts(){
+    return this._http.get<RedditPost>(this.frontpage)
+    .do(res => res.data.children
+      .forEach(child => {
+        JSON.stringify(child.data);
+      })
+    ).catch(this.handleError)
+  }
 
   private handleError(err: HttpErrorResponse) {
     console.log(err.message);

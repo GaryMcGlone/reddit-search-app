@@ -3,23 +3,36 @@
     <div class="item">
       <h4>{{subreddit.data.display_name}}</h4>
       <div class="middle aligned content">
-        <p>Subscribers: {{subreddit.data.subscribers}}</p>
+        <p>{{subreddit.data.public_description}}</p>
+      </div>
+      <div class="ui tiny statistic">
+        <div class="value">
+            {{subreddit.data.subscribers}}
+        </div>
+          <div class="label">
+            Subscribers
+          </div>
       </div>
       <div class="extra">
-        <p>{{subreddit.data.public_description}}</p>
+        <a href="">
+          <button type="button" class="ui right floated button" [routerLink]="['home']">Top Post</button>
+        </a>
       </div>
     </div>
   </div>
 </a>
-
+<div class="ui divider"></div>
 
 
 <!--
 
-    <p>
-    
-    
-    
-  </p>
+<div class="ui tiny statistic">
+  <div class="value">
+    2,204
+  </div>
+  <div class="label">
+    Views
+  </div>
+</div>
 
 -->

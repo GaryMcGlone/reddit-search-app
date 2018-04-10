@@ -9,5 +9,6 @@
 </div>
 
 <div *ngIf="subreddits" class="ui container output">
+  <div class="ui divider"></div>
   <display-subreddits *ngFor="let subreddit of subreddits.children" [subreddit]="subreddit" class="output"></display-subreddits>
 </div>

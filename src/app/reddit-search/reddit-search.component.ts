@@ -10,25 +10,23 @@ import { RedditService } from '../services/reddit.service';
 export class RedditSearchComponent implements OnInit {
 
   posts: Children;
+  defaultPosts: Children;
   ErrorMessage: string;
 
   constructor(private _redditService: RedditService) { }
 
-  searchReddit(search: string, sortBy: string): boolean {
-    this._redditService.searchReddit(search, sortBy)
+  searchReddit(search: string): boolean {
+    this._redditService.searchReddit(search)
       .subscribe(data => {
         this.posts = data.data;
       }, error => this.ErrorMessage = <any>error);
     return false;
   }
 
-  sortBy(sortBy: string): boolean{
-
-    console.log(sortBy);
-
-    return false;
-  }
-
   ngOnInit() {
+    this._redditService.defaultPosts()
+      .subscribe(data => {
+        this.defaultPosts = data.data;
+      }, error => this.ErrorMessage = <any>error);
   }
 }

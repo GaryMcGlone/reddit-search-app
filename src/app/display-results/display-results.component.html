@@ -12,17 +12,27 @@
                 <div class="ui horizontal label">
                     {{post.data.subreddit}}
                 </div>
-                <div class="ui horizontal label">
-                    Votes: {{post.data.score}}
+                <div class="ui tiny statistic">
+                    <div class="value">
+                        {{post.data.score}}
+                    </div>
+                    <div class="label">
+                        Score
+                    </div>
                 </div>
             </div>
             <div class="extra">
                 <a href="https://www.reddit.com{{post.data.permalink}}">
                     <button type="button" class="ui right floated button">Comments</button>
-                    <div class="ui right floated horizontal label">
-                        Comments: {{post.data.score}}
+                    <div class="ui tiny right floated statistic">
+                        <div class="value">
+                            {{post.data.num_comments}}
+                        </div>
+                        <div class="label">
+                            Comments
+                        </div>
                     </div>
-                </a>         
+                </a>
             </div>
         </div>
     </div>
