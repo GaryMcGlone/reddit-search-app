@@ -31,6 +31,7 @@ export class RedditService {
       })
     ).catch(this.handleError)
   }
+  
   defaultPosts(){
     return this._http.get<RedditPost>(this.frontpage)
     .do(res => res.data.children
