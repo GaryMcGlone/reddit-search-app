@@ -9,6 +9,21 @@ import { RedditService } from '../services/reddit.service';
 })
 export class RedditSearchComponent implements OnInit {
 
+  LimitOptions: string[] = [
+    "5",
+    "10",
+    "25",
+    "50",
+    "100"
+  ]
+
+  SortOptions: string[] = [
+    "Hot",
+    "Relevant",
+    "New",
+    "Top"
+  ]
+
   posts: Children;
   defaultPosts: Children;
   ErrorMessage: string;

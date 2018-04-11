@@ -4,13 +4,26 @@
       <h3>Search Reddit</h3>
       <input type="text" (keydown.enter)="searchReddit(searchStr.value)" #searchStr name="searchStr" placeholder="Search Reddit...">
     </div>
+    <div class="two fields">
+      <div class="field">
+        <label>Limit</label>
+        <select class="ui selection dropdown">
+          <option *ngFor="let limit of LimitOptions">{{limit}}</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Sort Options</label>
+        <select class="ui selection dropdown">
+          <option *ngFor="let sort of SortOptions">{{sort}}</option>
+        </select>
+      </div>
+    </div>
     <button class="ui button" (click)="searchReddit(searchStr.value)" type="button">Go!</button>
   </form>
 </div>
 
-
+<h2 *ngIf="searchStr == undefined ">Current Reddit Frontpage</h2>
 <div *ngIf="posts" class="ui container output">
-  <h2 *ngIf="!searchStr">Current Reddit Frontpage</h2>
   <div class="ui divider"></div>
   <display-results *ngFor="let post of posts.children" [post]="post" class="output"></display-results>
 </div>

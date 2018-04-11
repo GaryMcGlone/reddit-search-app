@@ -1,4 +1,4 @@
-<a *ngIf="post" href={{post.data.url}}>
+<a *ngIf="post" target="_blank" href={{post.data.url}}>
     <div class="ui divided selection list">
            
         <div class="item">
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="extra">
-                <a href="https://www.reddit.com{{post.data.permalink}}">
+                <a target="_blank" href="https://www.reddit.com{{post.data.permalink}}">
                     <button type="button" class="ui right floated button">Comments</button>
                     <div class="ui mini right floated grey statistic">
                         <div class="value">
