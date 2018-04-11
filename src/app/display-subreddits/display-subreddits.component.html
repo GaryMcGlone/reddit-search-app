@@ -1,17 +1,17 @@
 <a *ngIf="subreddit" href="https://reddit.com{{subreddit.data.url}}">
   <div class="ui divided selection list">
     <div class="item">
-      <h4>{{subreddit.data.display_name}}</h4>
+      <h2>{{subreddit.data.display_name}}</h2>
       <div class="middle aligned content">
         <p>{{subreddit.data.public_description}}</p>
       </div>
-      <div class="ui tiny statistic">
+      <div class="ui mini grey statistic">
         <div class="value">
-            {{subreddit.data.subscribers}}
+          {{subreddit.data.subscribers}}
         </div>
-          <div class="label">
-            Subscribers
-          </div>
+        <div class="label">
+          Subscribers
+        </div>
       </div>
       <div class="extra">
         <a href="">

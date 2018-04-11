@@ -10,6 +10,7 @@
 
 
 <div *ngIf="posts" class="ui container output">
+  <h2 *ngIf="!searchStr">Current Reddit Frontpage</h2>
   <div class="ui divider"></div>
   <display-results *ngFor="let post of posts.children" [post]="post" class="output"></display-results>
 </div>
