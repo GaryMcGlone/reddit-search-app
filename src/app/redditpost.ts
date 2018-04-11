@@ -1,6 +1,6 @@
 interface RedditPost{
     data: Children;
- 
+    
     thumbnail:string;
     title:string;
     url:string;

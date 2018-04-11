@@ -9,38 +9,38 @@ import 'rxjs/add/operator/map';
 export class RedditService {
 
   private endpoint = "http://www.reddit.com/r/all/search.json?q=";
-  private frontpage = "http://www.reddit.com/r/all/hot/search.json";
+  private frontpage = "http://www.reddit.com/r/all/hot/.json";
   private subredditEndpoint = "https://www.reddit.com/subreddits/search.json?q=";
 
   constructor(private _http: HttpClient) { }
 
   searchReddit(searchTerm): Observable<RedditPost> {
-    return this._http.get<RedditPost>(this.endpoint + searchTerm)
+    if (searchTerm == undefined) {
+      return this._http.get<RedditPost>(this.frontpage)
+        .do(res => res.data.children
+          .forEach(child => {
+            JSON.stringify(child.data);
+          })
+        ).catch(this.handleError)
+    }
+    else {
+      return this._http.get<RedditPost>(this.endpoint + searchTerm)
+        .do(res => res.data.children
+          .forEach(child => {
+            JSON.stringify(child.data);
+          })
+        ).catch(this.handleError)
+    }
+  }
+
+  searchForSubreddits(search): Observable<RedditPost> {
+    return this._http.get<RedditPost>(this.subredditEndpoint + search)
       .do(res => res.data.children
         .forEach(child => {
           JSON.stringify(child.data);
         })
       ).catch(this.handleError)
   }
-
-  searchForSubreddits(search) : Observable<RedditPost> {
-    return this._http.get<RedditPost>(this.subredditEndpoint + search)
-    .do(res => res.data.children
-      .forEach(child => {
-        JSON.stringify(child.data);
-      })
-    ).catch(this.handleError)
-  }
-  
-  defaultPosts(){
-    return this._http.get<RedditPost>(this.frontpage)
-    .do(res => res.data.children
-      .forEach(child => {
-        JSON.stringify(child.data);
-      })
-    ).catch(this.handleError)
-  }
-
   private handleError(err: HttpErrorResponse) {
     console.log(err.message);
     return Observable.throw(err.message);

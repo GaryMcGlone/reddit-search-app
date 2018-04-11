@@ -1,5 +1,6 @@
 <a *ngIf="post" href={{post.data.url}}>
     <div class="ui divided selection list">
+           
         <div class="item">
             <div class="ui tiny image">
                 <img src={{post.data.thumbnail}} OnError="this.src='https://cdn.iconscout.com/public/images/icon/free/png-128/reddit-logo-social-media-3108772751f77e07-128x128.png'"
@@ -12,7 +13,7 @@
                 <div class="ui horizontal label">
                     {{post.data.subreddit}}
                 </div>
-                <div class="ui tiny statistic">
+                <div class="ui mini grey statistic">
                     <div class="value">
                         {{post.data.score}}
                     </div>
@@ -24,7 +25,7 @@
             <div class="extra">
                 <a href="https://www.reddit.com{{post.data.permalink}}">
                     <button type="button" class="ui right floated button">Comments</button>
-                    <div class="ui tiny right floated statistic">
+                    <div class="ui tiny right floated grey statistic">
                         <div class="value">
                             {{post.data.num_comments}}
                         </div>

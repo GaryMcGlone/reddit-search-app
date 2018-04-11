@@ -24,9 +24,9 @@ export class RedditSearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._redditService.defaultPosts()
+    this._redditService.searchReddit(undefined)
       .subscribe(data => {
-        this.defaultPosts = data.data;
+        this.posts = data.data;
       }, error => this.ErrorMessage = <any>error);
   }
 }
