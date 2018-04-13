@@ -2,30 +2,35 @@
   <form class="ui large form raised segment">
     <div class="field">
       <h3>Search Reddit</h3>
-      <input type="text" (keydown.enter)="searchReddit(searchStr.value)" #searchStr name="searchStr" placeholder="Search Reddit...">
+      <input type="text" (keydown.enter)="searchReddit(searchStr.value, limit.value, sort.value)" #searchStr name="searchStr" placeholder="Search Reddit...">
     </div>
     <div class="two fields">
       <div class="field">
         <label>Limit</label>
-        <select class="ui selection dropdown">
+        <select class="ui selection dropdown" #limit>
           <option *ngFor="let limit of LimitOptions">{{limit}}</option>
         </select>
       </div>
       <div class="field">
         <label>Sort Options</label>
-        <select class="ui selection dropdown">
+        <select class="ui selection dropdown" #sort>
           <option *ngFor="let sort of SortOptions">{{sort}}</option>
         </select>
       </div>
     </div>
-    <button class="ui button" (click)="searchReddit(searchStr.value)" type="button">Go!</button>
+    <button class="ui button" (click)="searchReddit(searchStr.value, limit.value, sort.value)" type="button">Go!</button>
   </form>
 </div>
 
-<h2 *ngIf="searchStr == undefined ">Current Reddit Frontpage</h2>
+
 <div *ngIf="posts" class="ui container output">
-  <div class="ui divider"></div>
-  <display-results *ngFor="let post of posts.children" [post]="post" class="output"></display-results>
+  <div  *ngIf="searchStr == undefined">
+    <h1>Current Front Page</h1>
+  </div>
+  <div *ngIf="searchStr">
+      <div class="ui divider"></div>
+      <display-results *ngFor="let post of posts.children" [post]="post" class="output"></display-results>
+  </div>
 </div>
 
 

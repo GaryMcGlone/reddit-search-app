@@ -30,8 +30,8 @@ export class RedditSearchComponent implements OnInit {
 
   constructor(private _redditService: RedditService) { }
 
-  searchReddit(search: string): boolean {
-    this._redditService.searchReddit(search)
+  searchReddit(search: string, limit: string, sort: string): boolean {
+    this._redditService.searchReddit(search, limit, sort.toLowerCase())
       .subscribe(data => {
         this.posts = data.data;
       }, error => this.ErrorMessage = <any>error);
@@ -39,7 +39,7 @@ export class RedditSearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._redditService.searchReddit(undefined)
+    this._redditService.searchReddit(undefined, 25, "hot")
       .subscribe(data => {
         this.posts = data.data;
       }, error => this.ErrorMessage = <any>error);

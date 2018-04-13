@@ -1,1 +1,9 @@
-
+#scoreLabel{
+    color: grey;
+}
+#commentLabel{
+    color: grey;
+}
+.content{
+    color: black;
+}

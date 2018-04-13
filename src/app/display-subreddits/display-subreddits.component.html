@@ -1,7 +1,7 @@
 <a *ngIf="subreddit" target="_blank" href="https://reddit.com{{subreddit.data.url}}">
   <div class="ui divided selection list">
     <div class="item">
-      <h2>{{subreddit.data.display_name}}</h2>
+      <h1>{{subreddit.data.display_name}}</h1>
       <div class="middle aligned content">
         <p>{{subreddit.data.public_description}}</p>
       </div>
@@ -9,7 +9,7 @@
         <div class="value">
           {{subreddit.data.subscribers}}
         </div>
-        <div class="label">
+        <div class="label" id="subLevel">
           Subscribers
         </div>
       </div>
