@@ -1,6 +1,4 @@
 interface RedditPost{
-    data: Children;
-    
     thumbnail:string;
     title:string;
     url:string;
@@ -8,10 +6,12 @@ interface RedditPost{
 
     subreddit_name: string;
     display_name: string;
+
+    data: RedditResponse;
 }
 interface Data{
     data:RedditPost;
 }
-interface Children{
+interface RedditResponse{
     children: Data[];   
 }

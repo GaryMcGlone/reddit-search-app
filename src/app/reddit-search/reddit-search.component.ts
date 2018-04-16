@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { RedditService } from '../services/reddit.service';
+declare var jqeury: any;
+declare var $: any;
 
 @Component({
   selector: 'reddit-search',
@@ -24,8 +26,8 @@ export class RedditSearchComponent implements OnInit {
     "Top"
   ]
 
-  posts: Children;
-  defaultPosts: Children;
+  posts: RedditResponse;
+  defaultPosts: RedditResponse;
   ErrorMessage: string;
 
   constructor(private _redditService: RedditService) { }
@@ -43,5 +45,8 @@ export class RedditSearchComponent implements OnInit {
       .subscribe(data => {
         this.posts = data.data;
       }, error => this.ErrorMessage = <any>error);
+  }
+  ngAfterViewInit(){
+    $('.ui.dropdown').dropdown();
   }
 }
