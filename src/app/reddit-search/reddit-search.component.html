@@ -18,15 +18,11 @@
         </select>
       </div>
     </div>
-    
     <button class="ui button" (click)="searchReddit(searchStr.value, limit.value, sort.value)" type="button">Go!</button>
   </form>
 </div>
-
 
 <div *ngIf="posts" class="ui container output">
   <div class="ui divider"></div>
   <display-results *ngFor="let post of posts.children" [post]="post" class="output"></display-results>
 </div>
-
-

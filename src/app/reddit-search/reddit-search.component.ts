@@ -11,6 +11,7 @@ declare var $: any;
 })
 export class RedditSearchComponent implements OnInit {
 
+  // two arrays used for populating dropdown menus
   LimitOptions: string[] = [
     "5",
     "10",
@@ -18,7 +19,6 @@ export class RedditSearchComponent implements OnInit {
     "50",
     "100"
   ]
-
   SortOptions: string[] = [
     "Hot",
     "Relevant",
@@ -26,8 +26,10 @@ export class RedditSearchComponent implements OnInit {
     "Top"
   ]
 
+  // variables for storing reddit posts
   posts: RedditResponse;
   defaultPosts: RedditResponse;
+
   ErrorMessage: string;
 
   constructor(private _redditService: RedditService) { }
@@ -41,11 +43,14 @@ export class RedditSearchComponent implements OnInit {
   }
 
   ngOnInit() {
+    //display the current front page on load before anything has been searched
     this._redditService.searchReddit(undefined, 25, "hot")
       .subscribe(data => {
         this.posts = data.data;
       }, error => this.ErrorMessage = <any>error);
   }
+
+  //initializing jquery for the animation/styling on the dropdowns
   ngAfterViewInit(){
     $('.ui.dropdown').dropdown();
   }

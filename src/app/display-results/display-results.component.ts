@@ -17,5 +17,4 @@ export class DisplayResultsComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

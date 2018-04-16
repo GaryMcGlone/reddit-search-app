@@ -14,5 +14,4 @@ export class DisplaySubredditsComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
