@@ -8,9 +8,11 @@
                 <h2>
                     {{post.data.title}}
                 </h2>
-                <div class="ui horizontal label">
-                    {{post.data.subreddit}}
-                </div>
+                <a href="https:///reddit.com/r/{{post.data.subreddit}}">
+                    <div class="ui horizontal label">
+                        /r/{{post.data.subreddit}}
+                    </div>
+                </a>
                 <div class="ui mini grey statistic">
                     <div class="value">
                         {{post.data.score}}

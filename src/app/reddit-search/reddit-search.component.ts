@@ -12,29 +12,10 @@ declare var $: any;
 export class RedditSearchComponent implements OnInit {
 
   // this is an array of objects so that you can set a default value of 25 in the html
-  LimitOptions = [{
-    value: "5"
-  },
-  {
-    value: "10"
-  },
-  {
-    value: "25"
-  },
-  {
-    value: "50"
-  },
-  {
-    value: "100"
-  }]
+  LimitOptions = [{ value: "5" }, { value: "10" }, { value: "25" }, { value: "50" }, { value: "100" }]
 
   //array of sort options no default value
-  SortOptions: string[] = [
-    "Hot",
-    "Relevant",
-    "New",
-    "Top"
-  ]
+  SortOptions: string[] = ["Hot", "Relevant", "New", "Top"]
 
   // variables for storing reddit posts
   posts: RedditResponse;
