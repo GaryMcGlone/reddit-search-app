@@ -7,3 +7,6 @@
 .content{
     color: black;
 }
+#subredditLabel:hover{
+    background-color: lightgrey;
+}
