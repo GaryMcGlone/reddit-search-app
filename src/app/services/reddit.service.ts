@@ -9,8 +9,8 @@ import 'rxjs/add/operator/map';
 export class RedditService {
 
   //reddit api endpoints
-  private endpoint = "http://www.reddit.com/r/all/search.json?q=";
-  private frontpage = "http://www.reddit.com/r/all/hot/.json";
+  private endpoint = "https://www.reddit.com/r/all/search.json?q=";
+  private frontpage = "https://www.reddit.com/r/all/hot/.json";
   private subredditEndpoint = "https://www.reddit.com/subreddits/search.json?q=";
 
   constructor(private _http: HttpClient) { }
