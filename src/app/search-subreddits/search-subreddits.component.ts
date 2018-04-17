@@ -11,10 +11,19 @@ import { RedditService } from '../services/reddit.service';
 export class SearchSubredditsComponent implements OnInit {
 
   subreddits: RedditResponse;
+  searched: Boolean;
 
   constructor(private _redditService: RedditService) { }
 
   searchForSubreddits(search: string) : boolean{
+
+    if (search == '') {
+      this.searched = false;
+    }
+    else {
+      this.searched = true;
+    }
+
     this._redditService.searchForSubreddits(search)
     .subscribe(data => {
       this.subreddits = data.data;
