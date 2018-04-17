@@ -16,6 +16,8 @@ export class RedditService {
   constructor(private _http: HttpClient) { }
 
   searchReddit(searchTerm, limit , sort): Observable<RedditPost> {
+
+    console.log(searchTerm)
     //if search is undefined ( search will be undefined before anything is searched ) get the current reddit frontpage
     if (searchTerm == undefined) {
       return this._http.get<RedditPost>(this.frontpage)

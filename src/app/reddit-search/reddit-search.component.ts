@@ -20,12 +20,21 @@ export class RedditSearchComponent implements OnInit {
   // variables for storing reddit posts
   posts: RedditResponse;
   defaultPosts: RedditResponse;
+  searched: Boolean;
 
   ErrorMessage: string;
 
   constructor(private _redditService: RedditService) { }
 
   searchReddit(search: string, limit: string, sort: string): boolean {
+    //Check if the search string is empty - for displaying a message in the html
+    if (search == '') {
+      this.searched = false;
+    }
+    else {
+      this.searched = true;
+    }
+
     this._redditService.searchReddit(search, limit, sort.toLowerCase())
       .subscribe(data => {
         this.posts = data.data;
