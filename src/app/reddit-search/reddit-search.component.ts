@@ -11,14 +11,24 @@ declare var $: any;
 })
 export class RedditSearchComponent implements OnInit {
 
-  // two arrays used for populating dropdown menus
-  LimitOptions: string[] = [
-    "5",
-    "10",
-    "25",
-    "50",
-    "100"
-  ]
+  // this is an array of objects so that you can set a default value of 25 in the html
+  LimitOptions = [{
+    value: "5"
+  },
+  {
+    value: "10"
+  },
+  {
+    value: "25"
+  },
+  {
+    value: "50"
+  },
+  {
+    value: "100"
+  }]
+
+  //array of sort options no default value
   SortOptions: string[] = [
     "Hot",
     "Relevant",
@@ -51,7 +61,7 @@ export class RedditSearchComponent implements OnInit {
   }
 
   //initializing jquery for the animation/styling on the dropdowns
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     $('.ui.dropdown').dropdown();
   }
 }

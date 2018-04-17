@@ -8,7 +8,7 @@
       <div class="field">
         <label>Limit</label>
         <select class="ui fluid dropdown" #limit>
-          <option *ngFor="let limit of LimitOptions">{{limit}}</option>
+          <option *ngFor="let limit of LimitOptions" [selected]="limit.value == '25'">{{limit.value}}</option>
         </select>
       </div>
       <div class="field">
