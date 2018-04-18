@@ -10,7 +10,7 @@ import { RedditService } from '../services/reddit.service';
 })
 export class SearchSubredditsComponent implements OnInit {
 
-  subreddits: RedditResponse;
+  subreddits: IRedditResponse;
   searched: Boolean;
 
   constructor(private _redditService: RedditService) { }

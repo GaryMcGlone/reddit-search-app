@@ -1,4 +1,4 @@
-interface RedditPost{
+interface IRedditPost{
     thumbnail:string;
     title:string;
     url:string;
@@ -7,11 +7,11 @@ interface RedditPost{
     subreddit_name: string;
     display_name: string;
 
-    data: RedditResponse;
+    data: IRedditResponse;
 }
-interface Data{
-    data:RedditPost;
+interface IData{
+    data:IRedditPost;
 }
-interface RedditResponse{
-    children: Data[];   
+interface IRedditResponse{
+    children: IData[];   
 }

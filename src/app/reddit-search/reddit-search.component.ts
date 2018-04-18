@@ -18,8 +18,8 @@ export class RedditSearchComponent implements OnInit {
   SortOptions: string[] = ["Hot", "Relevant", "New", "Top"]
 
   // variables for storing reddit posts
-  posts: RedditResponse;
-  defaultPosts: RedditResponse;
+  posts: IRedditResponse;
+  defaultPosts: IRedditResponse;
   searched: Boolean;
 
   ErrorMessage: string;

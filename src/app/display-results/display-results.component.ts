@@ -10,8 +10,8 @@ import { RedditService } from '../services/reddit.service';
 })
 export class DisplayResultsComponent implements OnInit {
 
-   @Input() post:RedditResponse;
-   @Input() defaultPost:RedditResponse;
+   @Input() post:IRedditResponse;
+   @Input() defaultPost:IRedditResponse;
 
   constructor(private _redditService: RedditService) { }
 
